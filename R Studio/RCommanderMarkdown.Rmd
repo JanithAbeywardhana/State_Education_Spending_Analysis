@@ -1,0 +1,123 @@
+<!-- R Commander Markdown Template -->
+
+Replace with Main Title
+=======================
+
+### User
+
+### `r as.character(Sys.Date())`
+
+```{r echo=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+```{r}
+library(mvtnorm, pos=17)
+```
+
+
+```{r}
+library(survival, pos=17)
+```
+
+
+```{r}
+library(MASS, pos=17)
+```
+
+
+```{r}
+library(TH.data, pos=17)
+```
+
+
+```{r}
+library(multcomp, pos=17)
+```
+
+
+```{r}
+library(abind, pos=22)
+```
+
+
+
+### One-Way Analysis of Variance: dollars ~ region
+```{r}
+AnovaModel.1 <- aov(dollars ~ region, data = EduStates_New)
+summary(AnovaModel.1)
+with(EduStates_New, numSummary(dollars, groups = region, 
+  statistics=c('mean', 'sd')))
+```
+
+
+### One-Way Analysis of Variance: dollars ~ region
+```{r}
+AnovaModel.2 <- aov(dollars ~ region, data = EduStates_New)
+summary(AnovaModel.2)
+with(EduStates_New, numSummary(dollars, groups = region, 
+  statistics=c('mean', 'sd')))
+```
+
+
+### Boxplot: ~ dollars
+```{r}
+Boxplot( ~ dollars, data=EduStates_New, id=list(method="y"))
+```
+
+
+### Boxplot: ~ dollars
+```{r}
+Boxplot( ~ dollars, data=EduStates_New, id=list(method="y"))
+```
+
+
+### Linear Model: AnovaModel.4: dollars ~ region
+```{r}
+AnovaModel.4 <- lm(dollars ~ region, data=EduStates_New, contrasts=list(region ="contr.Sum"))
+Anova(AnovaModel.4)
+Tapply(dollars ~ region, mean, na.action=na.omit, data=EduStates_New) # means
+Tapply(dollars ~ region, sd, na.action=na.omit, data=EduStates_New) # std. deviations
+xtabs(~ region, data=EduStates_New) # counts
+```
+
+
+### Linear Model: AnovaModel.5: dollars ~ region
+```{r}
+AnovaModel.5 <- lm(dollars ~ region, data=EduStates_New, contrasts=list(region ="contr.Sum"))
+Anova(AnovaModel.5)
+Tapply(dollars ~ region, mean, na.action=na.omit, data=EduStates_New) # means
+Tapply(dollars ~ region, sd, na.action=na.omit, data=EduStates_New) # std. deviations
+xtabs(~ region, data=EduStates_New) # counts
+```
+
+
+### One-Way Analysis of Variance: dollars ~ X
+```{r}
+AnovaModel.7 <- aov(dollars ~ X, data = EduStates_New)
+summary(AnovaModel.7)
+with(EduStates_New, numSummary(dollars, groups = X, statistics=c('mean', 'sd')))
+```
+
+
+### Boxplot: ~ dollars
+```{r}
+Boxplot( ~ dollars, data=EduStates_New, id=list(method="y"), ylab="dollars")
+```
+
+
+### Boxplot: ~ dollars
+```{r}
+Boxplot( ~ dollars, data=EduStates_New, id=list(method="y"), ylab="dollars")
+```
+
+
+### Boxplot: ~ dollars
+```{r}
+Boxplot( ~ dollars, data=EduStates_New, id=list(method="y"), ylab="dollars")
+```
+
